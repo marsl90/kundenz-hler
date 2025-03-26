@@ -1,9 +1,10 @@
 {
   "name": "zählerappmarcel",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "start": "vite"
+    "dev": "vite",           // Entwicklungsmodus starten
+    "build": "vite build",    // Produktion bauen
+    "preview": "vite preview" // Vorschau der gebauten App
   },
   "dependencies": {
     "react": "^18.0.0",
@@ -11,3 +12,4 @@
     "vite": "^4.0.0"
   }
 }
+
