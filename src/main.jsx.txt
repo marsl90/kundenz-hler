@@ -1,0 +1,40 @@
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+
+function CounterApp() {
+  const [count, setCount] = useState(0);
+  const [history, setHistory] = useState([]);
+
+  const handleIncrement = () => {
+    const timestamp = new Date().toLocaleString();
+    setCount(count + 1);
+    setHistory([...history, { count: count + 1, timestamp }]);
+  };
+
+  return (
+    <div style={{ textAlign: "center", padding: "20px", fontFamily: "Arial" }}>
+      <h1>zählerappmarcel</h1>
+      <p style={{ fontSize: "40px" }}>{count}</p>
+      <button
+        onClick={handleIncrement}
+        style={{
+          fontSize: "20px",
+          padding: "10px 20px",
+          cursor: "pointer",
+        }}
+      >
+        +
+      </button>
+      <div style={{ marginTop: "20px" }}>
+        <h2>Verlauf</h2>
+        <ul style={{ listStyleType: "none", padding: 0 }}>
+          {history.map((entry, index) => (
+            <li key={index}>{entry.count} - {entry.timestamp}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<CounterApp />);
